@@ -1,0 +1,247 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+body {
+  background: rgb(30, 30, 30);
+  font-family: "Poppins", sans-serif;
+}
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HEADER (DESKTOP) */
+header {
+  width: 100%;
+  height: 7vh;
+  background: rgb(10, 10, 10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  transform: translateY(-40px);
+  animation: 200ms forwards ease-out 200ms slide-up;
+  opacity: 0;
+}
+
+
+/* LOGO */
+.logo img {
+  width: 45px;
+  transition: transform 0.2s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.2) rotate(-15deg);
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.nav-links a:not(.logo)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 100%;
+  height: 2px;
+  background-color: #f44336;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.logo):hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* HOME SECTION */
+.home {
+  padding-top: 7vh;
+  transition: 600ms ease;
+  opacity: 0;
+}
+.home.show{
+  opacity: 1;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  font-weight: 800;
+  font-size: 62px;
+  text-shadow: 0px 0px 25px #ff0000;
+}
+
+.hero p {
+  font-size: 22px;
+  color: #ca4f4f;
+}
+
+.hero a {
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  margin: 20px;
+  width: 15%;
+  font-size: 1.2rem;
+  border: 1px solid #fff;
+  transition: background, border-color, transform 0.2s ease;
+}
+
+.hero a:hover {
+  background: #494545;
+  border-color: #ca4f4f;
+  box-shadow: 0px 0px 20px #ca4f4f;
+  transform: scale(1.2);
+}
+
+/* GRID IMAGES */
+.grid-imgs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 2rem;
+  justify-items: center;
+}
+
+.grid-imgs img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px -10px 25px #5e4848;
+  transition: transform 0.2s ease-out;
+}
+
+.grid-imgs img:hover {
+  transform: translateY(-10px) scaleX(1.105);
+}
+
+/* ----------------------------- */
+/* MOBILE NAVIGATION */
+/* ----------------------------- */
+
+.mobile-navigation {
+  display: none;
+}
+
+.sidebar {
+  cursor: pointer;
+}
+
+.sidebar img {
+  filter: brightness(0) invert(1);
+  width: 36px;
+  height: 36px;
+}
+
+/* Hidden by default */
+.nav-holder {
+  display: none;
+  position: fixed;
+  top: 7vh;
+  right: 0;
+  width: 60%;
+  height: 100vh;
+  background: black;
+  padding-top: 20px;
+  z-index: 20;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+/* When opened */
+.nav-holder.open {
+  display: block;
+  transform: translateX(0);
+}
+
+/* ----------------------------- */
+/* MOBILE RESPONSIVE */
+/* ----------------------------- */
+
+@media (max-width: 500px) {
+  /* Hide desktop header */
+  header:not(.mobile-navigation) {
+    display: none;
+  }
+
+  /* Show mobile header */
+  .mobile-navigation {
+    width: 100%;
+    height: 7vh;
+    background: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    position: fixed;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-top: 20px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 20px;
+  }
+
+  .hero a {
+    width: 60%;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .home {
+    padding-top: 10vh;
+  }
+}
