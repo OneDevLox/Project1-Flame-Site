@@ -1,6 +1,4 @@
-**Visit it here: https://onedevlox.github.io/Project1-Flame-Site/
-
-**
+**Visit it here: https://onedevlox.github.io/Project1-Flame-Site/**
 
 --First Project--
 Information: Was learning css,html for a bit (a month) then I made this website. No tutorials followed for this website. In my opinion, it doesn't look too bad
