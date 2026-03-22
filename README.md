@@ -1,4 +1,4 @@
-**Visit it here: https://onedevlox.github.io/Project1-Flame-Site/**
+<h2>Visit it here: https://onedevlox.github.io/Project1-Flame-Site/</h2>
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
